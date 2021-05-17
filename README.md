@@ -1,0 +1,1 @@
+Uma ToDo list feita usando HTML5, CSS e Javascript para estudar principalmente Javascript.
