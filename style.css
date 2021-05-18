@@ -25,7 +25,7 @@ header h2 {
     text-align: center;
 }
 main {
-    position: relative;
+    /* position: relative; */
 
     width: 100%;
     height: 100%;
@@ -35,19 +35,24 @@ main {
 
 }
 .tasks-box {
-    position: absolute;
-    bottom: -5rem;
+    margin-top: -5rem;
 
-    width: 50vw;
+    width: 60vw;
     padding: 2.5rem;
 
     background-color: #fff;
     border-radius: 0.25rem;
+
 }
 
 .add-tasks {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 1rem;
 }
 
 .add-tasks form {
@@ -59,19 +64,53 @@ main {
     border: none;
     background-color: rgb(201, 201, 201);
     padding: 0rem 0.2rem;
+    
 }
 
 .add-tasks button {
     border: none;
     background-color: #fff;
+
+    padding-left: 1rem;
 }
 
 .add-tasks button.add-task img {
     border: 2px solid rgb(120, 0, 156);
-    padding: 0.1rem;
     width: 24px;
     height: 24px;
     border-radius: 0.25rem;
-    margin-left: 0.1rem;
-    margin-top: 0.1rem;
+
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.task p {
+    padding: 1rem;
+
+    margin-right: auto;
+}
+
+.task-done {
+    text-decoration: line-through;
+    color: rgb(184, 184, 184);
+}
+
+.remove-task {
+    border: none;
+    background-color: #fff;
+
+    padding-left: 1rem;
+}
+
+
+
+@media(max-width: 768px) {
+    .tasks-box {
+        width: 90vw;
+    }
 }
