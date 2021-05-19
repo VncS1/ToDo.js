@@ -62,8 +62,8 @@ main {
 
 .add-tasks input.input-task{
     border: none;
-    background-color: rgb(201, 201, 201);
-    padding: 0rem 0.2rem;
+    background-color: rgb(238, 238, 238);
+    padding: 0.5rem;
     
 }
 
@@ -71,13 +71,13 @@ main {
     border: none;
     background-color: #fff;
 
-    padding-left: 1rem;
+    padding-left: 0.7rem;
 }
 
 .add-tasks button.add-task img {
     border: 2px solid rgb(120, 0, 156);
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     border-radius: 0.25rem;
 
 }

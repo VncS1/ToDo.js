@@ -1,15 +1,7 @@
 const Tasks = [
     {
-        text: "aaa",
-    },
-    {
-        text: "aaa1",
-    },
-    {
-        text: "aaa2",
-    },
-    {
-        text: "aaa3",
+        text: "xx",
+        id: 0
     },
 ]
 
@@ -30,63 +22,105 @@ const TaskFunctions = {
     },
 
     removeTask(index){
+
+
         Tasks.splice(index, 1);
+    },
+
+    getTaskIndex(){
+
+
+
     }
 }
 
 const DOM = {
-    taskContainer: document.querySelector('.tasks-box'),
+    taskContainer: document.querySelector('.tasks-list'),
+    
+    addHtmlTask(task){
+        const container = DOM.taskContainer;
 
-    taskHTML(task, index){
+        const htmlT = DOM.htmlTask(task);
+
+        container.insertAdjacentHTML('beforeEnd', htmlT);
+    },
+
+    htmlTask(task){
         const html = 
         `
         <div class="task">
             <input type="checkbox" name="done" onChange="Utils.lineThrough(this)"/>
             <p class="text-task ">${task.text}</p>         
-            <button type="submit" class="remove-task" id="remove-task" onClick="TaskFunctions.removeTask(${index}"><img src="./assets/icon_remove-task.svg" /></button>
+            <button type="submit" class="remove-task" id="remove-task" onClick="TaskFunctions.getTaskIndex()">
+                <img src="./assets/icon_remove-task.svg" />
+            </button>
         </div>
         <hr>
         `
+
         return html;
-    },
-
-    addHTMLTask(task, index){
-        const div = document.createElement('div');
-        div.innerHTML = DOM.taskHTML(task, index);
-
-        DOM.taskContainer.appendChild(div);
     }
 }
 
 const Form = {
-    text: document.querySelector('input#text'),
+    text: document.querySelector('.input-task'),
 
     getValue(){
-        return {
-            text: Form.text.value
+        if(Form.text.value !== ""){
+            return {
+                text: Form.text.value,
+            }
+        }else {
+            alert("Por favor, preencha o nome da tarefa.");
+            
         }
+    },
+
+    clearField(){
+        Form.text.value = "";
     },
 
     submit(event){
         event.preventDefault();
 
         try{
-            const task = Form.getValue();
-            console.log(task);
 
-            TaskFunctions.addTask(task);
+            let text = Form.getValue();
+
+            DOM.addHtmlTask(text);
+
+            Form.clearField();
+
+
         }catch(e){
-            alert(e.message);
+            console.log(e.message);
         }
     }
 }
 
+TaskFunctions.addTask({text: "xx", id: Tasks.length});
+TaskFunctions.addTask({text: "xx", id: Tasks.length});
+TaskFunctions.addTask({text: "xx", id: Tasks.length});
+TaskFunctions.addTask({text: "xx", id: Tasks.length});
+TaskFunctions.addTask({text: "xx", id: Tasks.length});
 
-{/* <div class="task">
-<input type="checkbox" name="done" onChange="Utils.lineThrough(this)"/>
-<p class="text-task ">${task.text}</p>         
-<button type="submit" class="remove-task" id="remove-task" onClick="Task.remove(${index}"><img src="./assets/icon_remove-task.svg" /></button>
-</div>
-<hr> */}
+TaskFunctions.removeTask(3);
+
+TaskFunctions.addTask({text: "xx"});
+
+
 
 console.log(Tasks);
+
+// {
+//     text: "aaa",
+//     id: 0
+// },
+// {
+//     text: "aaa1",
+//     id: 1
+// },
+// {
+//     text: "aaa2",
+//     id: 2
+// },
